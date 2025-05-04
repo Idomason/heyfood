@@ -1,0 +1,17 @@
+# Server Environment Variables
+# Add these to your Vercel API (backend) project
+
+# Database connection string (e.g., Neon, Vercel Postgres, etc.)
+DATABASE_URL=postgresql://username:password@hostname:port/database
+
+# Node environment
+NODE_ENV=production
+
+# URL of your frontend deployment
+FRONTEND_URL=https://heyfood.vercel.app
+
+# Client Environment Variables
+# Add these to your Vercel frontend project
+
+# API URL (backend URL)
+NEXT_PUBLIC_API_URL=https://heyfood-api.vercel.app 
