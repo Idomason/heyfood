@@ -10,7 +10,7 @@ import Tags from '@/components/tags/Tags';
 
 export default function Home() {
   return (
-    <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
+    <Box className='font-sans' sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
       <Header/>
       <SubNav />
       <Tags />

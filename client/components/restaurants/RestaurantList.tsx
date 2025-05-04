@@ -94,7 +94,7 @@ const RestaurantList = () => {
   const totalCount = data?.pages[0]?.pagination.total || 0;
 
   return (
-    <Container maxWidth="lg" sx={{ mt: 4, mb: 6, height: 'calc(100vh - 160px)' }}>
+    <Container className='font-sans' maxWidth="lg" sx={{ mt: 4, mb: 6, height: 'calc(100vh - 160px)' }}>
       {/* Open Restaurants Info */}
       <OpenRestaurantsInfo />
       
