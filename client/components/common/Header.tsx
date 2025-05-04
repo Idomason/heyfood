@@ -32,16 +32,9 @@ import restaurantApi from '@/app/api/restaurantApi';
 import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
 
-type PaginatedResponse<T> = {
-  data: T[];
-  total: number;
-  page: number;
-  pageSize: number;
-};
-
 
 type RestaurantProp = {
-  id: number; // string
+  id: number; 
   name: string;
   logo?: string;
   coverImage?: string;
