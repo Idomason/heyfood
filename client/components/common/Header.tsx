@@ -22,7 +22,6 @@ import {
   CircularProgress
 } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import SearchIcon from '@mui/icons-material/Search';
 import Image from 'next/image';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -32,6 +31,22 @@ import ClearIcon from '@mui/icons-material/Clear';
 import restaurantApi from '@/app/api/restaurantApi';
 import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
+
+type PaginatedResponse<T> = {
+  data: T[];
+  total: number;
+  page: number;
+  pageSize: number;
+};
+
+
+type RestaurantProp = {
+  id: number; // string
+  name: string;
+  logo?: string;
+  coverImage?: string;
+  tags?: string[];
+};
 
 const Header = () => {
   const theme = useTheme();
@@ -59,16 +74,11 @@ const Header = () => {
   const { 
     data: restaurants = [], 
     isLoading: isLoadingRestaurants,
-    error: error  
-  } = useQuery({
+  } = useQuery<RestaurantProp[]>({
     queryKey: ['search', searchQuery],
     queryFn: async () => {
-      if (searchQuery && searchQuery.length >= 3) {
-        console.log('Searching for:', searchQuery);
-        return restaurantApi.searchRestaurants(searchQuery);
-      } else {
-        return [];
-      }
+      const response = await restaurantApi.searchRestaurants(searchQuery);
+      return response.data;
     },
     enabled: searchQuery.length >= 3
   });
@@ -113,7 +123,7 @@ const Header = () => {
 
   // Log when results are returned
   useEffect(() => {
-    if (restaurants.length > 0) {
+    if (restaurants && restaurants.length > 0) {
       console.log('Search results:', restaurants);
     }
   }, [restaurants]);
@@ -210,15 +220,15 @@ const Header = () => {
                   <Box sx={{ display: 'flex', justifyContent: 'center', py: 2 }}>
                     <CircularProgress size={24} />
                   </Box>
-                ) : restaurants.length === 0 ? (
+                  ) : restaurants.length === 0 ? (        
                   <Box sx={{ p: 2 }}>
                     <Typography variant="body2" color="text.secondary">
-                      No results found for "{searchTerm}"
+                      <p>No results found for &quot;{searchTerm}&quot;</p>
                     </Typography>
                   </Box>
                 ) : (
                   <List sx={{ width: '100%', p: 0 }}>
-                    {restaurants.map((restaurant: any, index: number) => (
+                    {restaurants.map((restaurant: RestaurantProp, index: number) => (
                       <React.Fragment key={restaurant.id}>
                         <ListItem 
                           component={Link}

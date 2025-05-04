@@ -6,9 +6,7 @@ import {
   Card,
   CardContent, 
   Typography, 
-  Stack,
   Rating,
-  Chip
 } from '@mui/material';
 import { Restaurant } from '@/app/api/restaurantApi';
 

@@ -9,7 +9,7 @@ import ClientLayout from '../components/layout/ClientLayout';
   display: 'swap',
 });
 
-const metadata: Metadata = {
+export const metadata: Metadata = {
   title: 'HeyFood | Food Delivery',
   description: 'Order food from your favorite restaurants',
 };

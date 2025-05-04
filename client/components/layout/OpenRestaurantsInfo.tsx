@@ -1,11 +1,10 @@
 'use client';
 
 import React from 'react';
-import { Box, Typography, Chip, useTheme } from '@mui/material';
+import { Box, Typography, Chip } from '@mui/material';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 const OpenRestaurantsInfo = () => {
-  const theme = useTheme();
   
   return (
     <Box 

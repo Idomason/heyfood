@@ -3,7 +3,7 @@
 import React, { useState, useRef, useCallback, useMemo, useEffect } from 'react';
 import { Box, Container, Paper, Typography } from '@mui/material';
 import { useQuery } from '@tanstack/react-query';
-import restaurantApi, { Restaurant, PaginatedResponse } from '@/app/api/restaurantApi';
+import restaurantApi from '@/app/api/restaurantApi';
 import RestaurantGrid from './RestaurantGrid';
 import SearchBar from './SearchBar';
 import TagFilter from './TagFilter';
@@ -12,7 +12,6 @@ import OpenRestaurantsInfo from '../layout/OpenRestaurantsInfo';
 import { useFilteredRestaurants } from '@/hooks/useFilteredRestaurants';
 import { useSearchParams } from 'next/navigation';
 
-const RESTAURANTS_PER_PAGE = 12;
 
 const RestaurantList = () => {
   const searchParams = useSearchParams();

@@ -6,7 +6,6 @@ import {
   TextField, 
   InputAdornment, 
   IconButton,
-  useTheme 
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import ClearIcon from '@mui/icons-material/Clear';
@@ -21,7 +20,6 @@ const SearchBar = ({
   initialQuery = '' 
 }: SearchBarProps) => {
   const [searchTerm, setSearchTerm] = useState(initialQuery);
-  const theme = useTheme();
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
