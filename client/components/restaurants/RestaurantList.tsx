@@ -48,7 +48,7 @@ const RestaurantList = () => {
     hasNextPage,
     isFetchingNextPage,
     isLoading: isLoadingRestaurants,
-  } = useFilteredRestaurants(selectedFoodTag, searchQuery, sortBy);
+  } = useFilteredRestaurants(selectedFoodTag || selectedTag, searchQuery, sortBy);
 
   // Flatten the pages data
   const restaurants = useMemo(() => {

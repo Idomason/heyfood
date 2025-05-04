@@ -13,12 +13,12 @@ interface TagFilterProps {
   isLoading: boolean;
 }
 
-const TagFilter: React.FC<TagFilterProps> = ({ 
+const TagFilter = ({ 
   tags, 
   selectedTag, 
   onTagSelect,
   isLoading
-}) => {
+}: TagFilterProps) => {
   // Handle click on tag
   const handleTagClick = (tagName: string) => {
     if (selectedTag === tagName) {
