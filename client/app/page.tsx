@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import Box from '@mui/material/Box';
 import Header from '@/components/common/Header';
 import Banner from '@/components/Banner/Banner';
@@ -13,9 +13,14 @@ export default function Home() {
     <Box className='font-sans' sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
       <Header/>
       <SubNav />
-      <Tags />
+      <Suspense fallback={<div>Loading tags...</div>}>
+        <Tags />
+      </Suspense>
       <Banner />
-      <RestaurantList />
+
+      <Suspense fallback={<div>Loading restaurants...</div>}>
+        <RestaurantList />
+      </Suspense>
     </Box>
   );
 }
