@@ -13,12 +13,12 @@ export default function Home() {
     <Box className='font-sans' sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
       <Header/>
       <SubNav />
-      <Suspense fallback={<div>Loading tags...</div>}>
+      <Suspense>
         <Tags />
       </Suspense>
       <Banner />
 
-      <Suspense fallback={<div>Loading restaurants...</div>}>
+      <Suspense>
         <RestaurantList />
       </Suspense>
     </Box>
